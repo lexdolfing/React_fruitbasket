@@ -1,0 +1,23 @@
+article {
+    border: 2px black solid;
+    display: flex;
+    margin: 30px;
+    gap: 10px;
+    align-items: center;
+}
+
+article button {
+    width: 30px;
+    height: 30px;
+}
+
+h1 {
+    margin-left: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
