@@ -1,15 +1,19 @@
 import React, {useState} from 'react';
 import './App.css';
 import logo from './assets/screenshot-logo.png'
-import Fruit from "./Fruit";
+import FruitButtons from "./FruitButtons";
 import {fireEvent} from "@testing-library/react";
 import FormEntry from "./FormEntry";
 
 function App() {
-    const [strawberries, setStrawberries] = useState(0);
-    const [bananas, setBananas] = useState(0);
-    const [apples, setApples] = useState(0);
-    const [kiwis, setKiwis] = useState(0);
+
+
+    const [fruitState, setFruitState] = useState( {
+        strawberries : 0,
+        bananas : 0,
+        apples : 0,
+        kiwis : 0
+    })
 
     const [formState, setFormState] = useState({
         firstname : '',
@@ -52,41 +56,41 @@ function App() {
     <>
         <img src={logo} alt="Logo of our fruit delivery service"/>
 
-        <Fruit
+        <FruitButtons
             title="🍓 Aardbeien"
             buttonNameMinus="minusButton"
                 buttonNamePlus="plusButton"
-                disabled={strawberries === 0}
-                onClickMinus={() => setStrawberries(strawberries-1)}
-                onClickPlus={() => setStrawberries(strawberries+1)}
-                counter={strawberries}
+                disabled={fruitState.strawberries === 0}
+                onClickMinus={() => setFruitState({...fruitState, strawberries: fruitState.strawberries-1 })}
+                onClickPlus={() => setFruitState({...fruitState, strawberries: fruitState.strawberries+1})}
+                counter={fruitState.strawberries}
         />
-        <Fruit
+        <FruitButtons
             title="🍌 Bananen"
                 buttonNameMinus="minusButton"
                 buttonNamePlus="plusButton"
-                disabled={bananas ===0}
-                onClickMinus={() => setBananas(bananas-1)}
-                onClickPlus={() => setBananas(bananas+1)}
-                counter={bananas}
+                disabled={fruitState.bananas ===0}
+                onClickMinus={() => setFruitState({...fruitState, bananas: fruitState.bananas-1})}
+                onClickPlus={() => setFruitState({...fruitState, bananas: fruitState.bananas+1})}
+                counter={fruitState.bananas}
         />
-        <Fruit
+        <FruitButtons
             title="🍏 Appels"
             buttonNameMinus="minusButton"
             buttonNamePlus="plusButton"
-            disabled={apples ===0}
-            onClickMinus={() => setApples(apples-1)}
-            onClickPlus={() => setApples(apples+1)}
-            counter={apples}
+            disabled={fruitState.apples ===0}
+            onClickMinus={() => setFruitState({...fruitState, apples: fruitState.apples-1})}
+            onClickPlus={() => setFruitState({...fruitState, apples: fruitState.apples+1})}
+            counter={fruitState.apples}
         />
-        <Fruit
+        <FruitButtons
             title="🥝 kiwis"
             buttonNameMinus="minusButton"
             buttonNamePlus="plusButton"
-            disabled={kiwis ===0}
-            onClickMinus={() => setKiwis(kiwis-1)}
-            onClickPlus={() => setKiwis(kiwis+1)}
-            counter={kiwis}
+            disabled={fruitState.kiwis ===0}
+            onClickMinus={() => setFruitState({...fruitState, kiwis: fruitState.kiwis-1})}
+            onClickPlus={() => setFruitState({...fruitState, kiwis: fruitState.kiwis+1})}
+            counter={fruitState.kiwis}
         />
 
         <button onClick={() => handleReset()}>Reset</button>

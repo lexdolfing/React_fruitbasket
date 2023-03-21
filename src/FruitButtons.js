@@ -1,5 +1,5 @@
 import React from 'react';
-export default function Fruit({title, buttonNameMinus, buttonNamePlus, disabled, onClickMinus, onClickPlus, counter}) {
+export default function FruitButtons({title, buttonNameMinus, buttonNamePlus, disabled, onClickMinus, onClickPlus, counter}) {
     return (
         <article>
             <h1 className="Product">{title}</h1>
